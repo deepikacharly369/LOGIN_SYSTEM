@@ -1,0 +1,20 @@
+
+body{
+    background: rgb(37,116,224);
+background: linear-gradient(360deg, rgba(37,116,224,1) 42%, rgba(0,212,255,1) 100%);
+
+}
+.form_class{
+    border-radius: 20px;
+    box-shadow: 5px 10px 18px  rgba(0, 0, 0, 0.64);
+    padding: 30px;
+}
+.form_class h1{
+    font-weight: 900;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.form_changer
+{
+    text-decoration: none;
+    color: white;
+}

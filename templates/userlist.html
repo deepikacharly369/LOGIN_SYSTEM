@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+
+{% block contend %}
+{% load static %}.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white " href="adminhome">HOME</a>
+      <a class="navbar-brand text-white" href="userlist ">USER LIST</a>
+
+      <form class="d-flex" role="search" action="searching" method="POST">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchid">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <a class="navbar-brand text-white" href="adminlogout ">LOG OUT</a>
+
+
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead class="bg-dark">
+
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th></th>
+            </tr>
+
+          </thead>
+          <tbody>
+            {% for data in useres %}
+            <tr >
+              <th scope="row">{{data.id}}</th>
+              <td>{{data.username}}</td>
+              <td>{{data.first_name}}</td>
+              <td>{{data.last_name}}</td>
+              <td>{{data.email}}</td>
+              <td>
+                <form action="updation" method="POST">
+                  {% csrf_token %}
+                  <input type="text" name="id" value="{{data.id}}" hidden>
+                  <input type="submit" value="UPDATE" class="btn btn-primary">
+                </form>
+              </td>
+              <td>
+                <form action="deletion" method="POST">
+                  {% csrf_token %}
+                  <input type="text" name="id" value="{{data.id}}" hidden>
+                  <input type="submit" value="DELETE" class="btn btn-danger">
+                </form>
+
+              </td>
+
+            </tr>
+            {% endfor %}
+            <tr colspan=>
+          </tbody>
+          
+        </table>
+        {% for message in messages %}
+        <div class="d-flex justify-content-center"><span class="d-flex justify-content-center text-bg-danger text-dark p-2">{{message}}</span></div>
+        {% endfor %}
+        <div class="d-flex justify-content-center"><a href="adduser" class="btn btn-success">ADD USER</a></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+
+
+
+{% endblock contend %}

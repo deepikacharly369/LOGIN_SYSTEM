@@ -1,0 +1,22 @@
+body {
+    background-color: #f8d7da;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #bd2130;
+    border-color: #bd2130;
+}
+
+.form_changer {
+    color: #dc3545;
+}
+
+.form_changer:hover {
+    text-decoration: underline;
+}
+

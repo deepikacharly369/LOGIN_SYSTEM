@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block contend %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-lg-8">
+                <form action="register" method="post" class="form_class">
+                    {% csrf_token %}
+                    <h1 class="text-center text-primary mb-4">Sign Up</h1>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name</label>
+                            <input name="first_name" type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <input name="last_name" type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input name="mail" type="email" class="form-control" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input name="username" type="text" class="form-control" id="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password1">Password</label>
+                        <input name="password1" type="password" class="form-control" id="password1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input name="password2" type="password" class="form-control" id="password2" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <p class="text-center mt-3">Already have an account? <a href="/" class="form_changer">Login here</a>
+                    </p>
+
+                    {% for message in messages %}
+                    <h5 class="text-danger text-center mt-3">{{message}}</h5>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UoKXBYLbFOZlQZMHYbVbQrE9JOI84pBxVnNXbcaD+BzgmeOO00AyQxG9GqjFZrE"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% endblock contend %}

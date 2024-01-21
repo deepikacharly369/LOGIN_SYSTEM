@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    
+    .card {
+        border-radius: 10px;
+    }
+    
+    .card-header {
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+    
+    .btn-danger:hover {
+        background-color: #bd2130;
+        border-color: #bd2130;
+    }
+    
+</style>
+
+{% block contend %}
+{% load static %}
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center border-0 shadow">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="display-4">USER</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Welcome, {{ a }}</h5>
+                    
+                    <a href="uselogout" class="btn btn-danger">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contend %}
